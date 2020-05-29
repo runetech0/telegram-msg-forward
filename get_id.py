@@ -11,9 +11,10 @@ api_id = conf.API_ID
 api_hash = conf.API_HASH
 
 
-
-client = TelegramClient('anon', api_id, api_hash)
-
+if conf.PROXY:
+    client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
+else:
+    client = TelegramClient('anon', api_id, api_hash)
 
 @client.on(events.NewMessage())
 async def newMessageHandler(msg):

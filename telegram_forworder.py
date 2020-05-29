@@ -8,7 +8,10 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 api_id = conf.API_ID
 api_hash = conf.API_HASH
 
-client = TelegramClient('anon', api_id, api_hash)
+if conf.PROXY:
+    client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
+else:
+    client = TelegramClient('anon', api_id, api_hash)
 
 chats = conf.CHANNELS_TO_GET_UPDATES_FROM
 

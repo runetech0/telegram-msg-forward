@@ -23,5 +23,12 @@ OWN_CHANNEL_ID = -1043423531
 # Get the ids for all the channel you want to receive updates from and paste them here.
 CHANNELS_TO_GET_UPDATES_FROM = [-1032347421, -10234410845, 9344540]
 
+
+
+# Use socks5 proxy if telegram web is not working in your region.
+PROXY = True
+SOCKS5_SERVER = '81.19.223.180'
+SOCKS5_PORT = 1080
+
 # You are done!
 # Run the telegram_forwarder script using python telegram_forwarder.py using 'python telegram_forwarder.py'.
