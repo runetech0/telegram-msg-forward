@@ -1,0 +1,3 @@
+pysocks
+logging
+telethon
