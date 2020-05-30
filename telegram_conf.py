@@ -7,9 +7,9 @@
 # There is no need to enter any URL. Just enter the App title and short name of your choice.
 # Click on Create application at the end.
 # Copy the API_ID and API_HASH values and paste here.
-API_ID = 12425
+API_ID = 1215
 # NOTE: The API_HASH must be in single quotes. Below is a sample.
-API_HASH = 'd15e36f9526a8384b2d0c547d'
+API_HASH = 'd15d'
 
 
 
@@ -18,10 +18,10 @@ API_HASH = 'd15e36f9526a8384b2d0c547d'
 #  After login, if you have'nt already. It would instruct to you to got to the channel you want the id for and send any message there.
 # After you send the message check your terminal. Find your message and copy the channel id to OWN_CHANNEL_ID.
 # Be careful with the minus(-) sign. If it is in the id then place it as well.
-OWN_CHANNEL_ID = -1043423531
+OWN_CHANNEL_ID = -1001431
 
 # Get the ids for all the channel you want to receive updates from and paste them here.
-CHANNELS_TO_GET_UPDATES_FROM = [-1032347421, -10234410845, 9344540]
+CHANNELS_TO_GET_UPDATES_FROM = []
 
 
 
