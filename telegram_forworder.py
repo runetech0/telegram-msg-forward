@@ -11,11 +11,20 @@ api_id = conf.API_ID
 api_hash = conf.API_HASH
 chats = conf.CHANNELS_TO_GET_UPDATES_FROM 
 
+if conf.AUTHENTICATION:
+    sockProxy = {
+        "proxy_type": socks.SOCKS5,
+        "addr": conf.SOCKS5_SERVER,
+        "port": conf.SOCKS5_PORT,
+        "rdns": True,
+        "username": conf.USERNAME,
+        "password": conf.PASSWORD
+    }
 
 if conf.PROXY:
     if conf.AUTHENTICATION:
         if conf.USERNAME != None and conf.PASSWORD != None:
-            client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT, conf.USERNAME, conf.PASSWORD))
+            client = TelegramClient('anon', api_id, api_hash, proxy=sockProxy)
     elif not conf.AUTHENTICATION:
         client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
 else:
