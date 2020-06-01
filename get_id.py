@@ -78,9 +78,6 @@ async def newMessageHandler(msg):
             pass
 
 
-
-
-
 try:
     client.start()
     print(guideMsg)
