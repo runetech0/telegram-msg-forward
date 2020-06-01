@@ -20,7 +20,7 @@ if conf.AUTHENTICATION:
         "username": conf.USERNAME,
         "password": conf.PASSWORD
     }
-
+ 
 if conf.PROXY:
     if conf.AUTHENTICATION:
         if conf.USERNAME != None and conf.PASSWORD != None:
