@@ -30,5 +30,13 @@ PROXY = True
 SOCKS5_SERVER = '81.19.223.180'
 SOCKS5_PORT = 1080
 
+
+# If proxy requires authentication then set AUTHETICATIN to True to enable.
+AUTHENTICATION = False
+USERNAME = None
+PASSWORD = None
+
+
+
 # You are done!
 # Run the telegram_forwarder script using python telegram_forwarder.py using 'python telegram_forwarder.py'.
