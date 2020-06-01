@@ -18,7 +18,7 @@ API_HASH = 'd15e36f952b2d0c547d'
 #  After login, if you have'nt already. It would instruct to you to got to the channel you want the id for and send any message there.
 # After you send the message check your terminal. Find your message and copy the channel id to OWN_CHANNEL_ID.
 # Be careful with the minus(-) sign. If it is in the id then place it as well.
-OWN_CHANNEL_ID = -1001499013531
+OWN_CHANNEL_ID = -10031
 
 # Get the ids for all the channel you want to receive updates from and paste them here.
 CHANNELS_TO_GET_UPDATES_FROM = []
@@ -27,8 +27,8 @@ CHANNELS_TO_GET_UPDATES_FROM = []
 
 # Use socks5 proxy if telegram web is not working in your region.
 PROXY = True
-SOCKS5_SERVER = '81.19.223.180'
-SOCKS5_PORT = 1080
+SOCKS5_SERVER = 'xx.xx.xxx.xxx'
+SOCKS5_PORT = 1234
 
 
 # If proxy requires authentication then set AUTHETICATIN to True to enable.
