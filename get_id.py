@@ -36,7 +36,7 @@ else:
 
 try:
     while True:
-        print(f"[+] Please Select the channel type using number. CTRL+c : quit.\n[1] Public\n[2] Private")
+        print(f"[+] Please Select the channel type using number. CTRL+c : quit.\n[1] Public Channel\n[2] Private/Public Group + Private Channel")
         s = input("Enter 1 or 2: ")
         if int(s) == (1):
             public = True
@@ -59,9 +59,23 @@ except KeyboardInterrupt:
 @client.on(events.NewMessage())
 async def newMessageHandler(msg):
     if public:
-        print(f"Chat id for public channel is: {msg.fwd_from.channel_id}\n")
+            try:
+                if msg.fwd_from.channel_id:
+                    print(f"-------------------------------------------------------------")
+                    print(f"[+] Forwarded message is: {msg.raw_text}")
+                    print(f"\n[+] Chat id for public channel is: {msg.fwd_from.channel_id}\n")
+                    print(f"-------------------------------------------------------------\n")
+            except AttributeError:
+                pass
     else:
-        print(f"Sent message is: {msg.raw_text}\nThe chat id for the channel is: {msg.chat_id}\n---------------------------------------\n")
+        try:
+            if msg.chat_id:
+                print(f"---------------------------------------------------")
+                print(f"[+] Sent message is: {msg.raw_text}")
+                print(f"\n[+] The chat id for the channel is: {msg.chat_id}")
+                print(f"--------------------------------------------------\n")
+        except AttributeError:
+            pass
 
 
 
