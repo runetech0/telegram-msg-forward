@@ -7,9 +7,9 @@
 # There is no need to enter any URL. Just enter the App title and short name of your choice.
 # Click on Create application at the end.
 # Copy the API_ID and API_HASH values and paste here.
-API_ID = 1219125
+API_ID = 1225
 # NOTE: The API_HASH must be in single quotes. Below is a sample.
-API_HASH = 'd15e36f952698015e9f8384b2d0c547d'
+API_HASH = 'd15e36f952b2d0c547d'
 
 
 
