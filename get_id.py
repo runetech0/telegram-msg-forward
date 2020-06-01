@@ -11,14 +11,27 @@ api_id = conf.API_ID
 api_hash = conf.API_HASH
 
 
-
+if conf.AUTHENTICATION:
+    sockProxy = {
+        "proxy_type": socks.SOCKS5,
+        "addr": conf.SOCKS5_SERVER,
+        "port": conf.SOCKS5_PORT,
+        "rdns": True,
+        "username": conf.USERNAME,
+        "password": conf.PASSWORD
+    }
+ 
 if conf.PROXY:
-    print("[+] Proxy Enabled!")
-    client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
+    if conf.AUTHENTICATION:
+        if conf.USERNAME != None and conf.PASSWORD != None:
+            client = TelegramClient('anon', api_id, api_hash, proxy=sockProxy)
+            print(f"[+] Proxy enabled with authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
+    elif not conf.AUTHENTICATION:
+        client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
+        print(f"[+] Proxy enabled without authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
 else:
-    print("[+] Proxy Disabled!")
-    client = TelegramClient('anon', api_id, api_hash)
-
+    print(f"[+] Proxy disabled")
+    client = TelegramClient('anon', api_id, api_hash) 
 
 
 try:
