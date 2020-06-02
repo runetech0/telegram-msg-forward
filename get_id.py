@@ -37,7 +37,7 @@ else:
 try:
     while True:
         print(f"[+] Please Select the channel type using number. CTRL+c : quit.\n[1] Public Channel\n[2] Private/Public Group + Private Channel")
-        s = input("Enter 1 or 2: ")
+        s = input("[+] Enter 1 or 2: ")
         if int(s) == (1):
             public = True
             guideMsg = "[+] Goto the public channel and forward a message from that channel.\n"
@@ -47,7 +47,7 @@ try:
             guideMsg = "[+] Goto the channel you want to get id for and send a message!\n"
             break
         else:
-            print("[-]Invalid selection. Please Try again!\n")
+            print("[-] Invalid selection. Please Try again!\n")
             continue
 except KeyboardInterrupt:
     print("\nQuiting ...\n")

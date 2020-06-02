@@ -30,6 +30,8 @@ if conf.PROXY:
 else:
     client = TelegramClient('anon', api_id, api_hash) 
 
+
+
 chats=conf.CHANNELS_TO_GET_UPDATES_FROM
 
 @client.on(events.NewMessage(chats, blacklist_chats=False))
