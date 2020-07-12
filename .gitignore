@@ -1,4 +1,5 @@
-./.vscode/
-./__pycache__/
-testFiile 
-telegram_conf.py
+.vscode/
+__pycache__/
+conf.py
+.directory
+*.session
