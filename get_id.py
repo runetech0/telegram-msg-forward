@@ -1,39 +1,17 @@
 
 from telethon import TelegramClient, events, errors
-import logging
-import socks
+# import logging
 import conf
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.WARNING)
+# logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+# level=logging.WARNING)
 
 
 api_id = conf.API_ID
 api_hash = conf.API_HASH
+session_file = 'bot'
 
 
-if conf.AUTHENTICATION:
-    sockProxy = {
-        "proxy_type": socks.SOCKS5,
-        "addr": conf.SOCKS5_SERVER,
-        "port": conf.SOCKS5_PORT,
-        "rdns": True,
-        "username": conf.USERNAME,
-        "password": conf.PASSWORD
-    }
-
-if conf.PROXY:
-    if conf.AUTHENTICATION:
-        if conf.USERNAME is not None and conf.PASSWORD is not None:
-            client = TelegramClient('anon', api_id, api_hash, proxy=sockProxy)
-            print(f"[+] Proxy enabled with authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
-    elif not conf.AUTHENTICATION:
-        client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
-        print(f"[+] Proxy enabled without authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
-else:
-    print("[+] Proxy disabled")
-    client = TelegramClient('anon', api_id, api_hash)
-
-client = TelegramClient('anon', api_id, api_hash)
+client = TelegramClient(session_file, api_id, api_hash)
 
 try:
     while True:
