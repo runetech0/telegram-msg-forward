@@ -1,4 +1,6 @@
 
+# NOTE: Please rename this file (sample-conf.py) to 'conf.py' before using this bot.
+
 # To get API_ID value follow these steps
 # Go to https://my.telegram.org/auth
 # Login with your normal telegram user account number.
