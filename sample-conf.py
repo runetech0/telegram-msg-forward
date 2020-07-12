@@ -23,17 +23,5 @@ OWN_CHANNEL_ID = -1003523231
 CHANNELS_TO_GET_UPDATES_FROM = [-131451, -1475134, 4751754715, 45476152]
 
 
-# Use socks5 proxy if telegram web is not working in your region.
-PROXY = True
-SOCKS5_SERVER = 'xx.xx.xxx.xxx'
-SOCKS5_PORT = 1234
-
-
-# If proxy requires authentication then set AUTHETICATIN to True to enable.
-AUTHENTICATION = False
-USERNAME = None
-PASSWORD = None
-
-
 # You are done!
 # Run the telegram_forwarder script using python telegram_forwarder.py using 'python telegram_forwarder.py'.

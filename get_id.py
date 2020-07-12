@@ -23,20 +23,21 @@ if conf.AUTHENTICATION:
 
 if conf.PROXY:
     if conf.AUTHENTICATION:
-        if conf.USERNAME != None and conf.PASSWORD != None:
+        if conf.USERNAME is not None and conf.PASSWORD is not None:
             client = TelegramClient('anon', api_id, api_hash, proxy=sockProxy)
             print(f"[+] Proxy enabled with authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
     elif not conf.AUTHENTICATION:
         client = TelegramClient('anon', api_id, api_hash, proxy=(socks.SOCKS5, conf.SOCKS5_SERVER, conf.SOCKS5_PORT))
         print(f"[+] Proxy enabled without authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
 else:
-    print(f"[+] Proxy disabled")
+    print("[+] Proxy disabled")
     client = TelegramClient('anon', api_id, api_hash)
 
+client = TelegramClient('anon', api_id, api_hash)
 
 try:
     while True:
-        print(f"[+] Please Select the channel type using number. CTRL+c : quit.\n[1] Public Channel\n[2] Private/Public Group + Private Channel")
+        print("[+] Please Select the channel type using number. CTRL+c : quit.\n[1] Public Channel\n[2] Private/Public Group + Private Channel")
         s = input("[+] Enter 1 or 2: ")
         if int(s) == (1):
             public = True
@@ -59,19 +60,19 @@ async def newMessageHandler(msg):
     if public:
         try:
             if msg.fwd_from.channel_id:
-                print(f"-------------------------------------------------------------")
-                print(f"[+] Forwarded message is: {msg.raw_text}")
-                print(f"\n[+] Chat id for public channel is: {msg.fwd_from.channel_id}\n")
-                print(f"-------------------------------------------------------------\n")
+                print("-------------------------------------------------------------")
+                print("[+] Forwarded message is: {msg.raw_text}")
+                print("\n[+] Chat id for public channel is: {msg.fwd_from.channel_id}\n")
+                print("-------------------------------------------------------------\n")
         except AttributeError:
             pass
     else:
         try:
             if msg.chat_id:
-                print(f"---------------------------------------------------")
+                print("---------------------------------------------------")
                 print(f"[+] Sent message is: {msg.raw_text}")
                 print(f"\n[+] The chat id for the channel is: {msg.chat_id}")
-                print(f"--------------------------------------------------\n")
+                print("--------------------------------------------------\n")
         except AttributeError:
             pass
 
@@ -81,6 +82,6 @@ try:
     print(guideMsg)
     client.run_until_disconnected()
 except errors.rpcerrorlist.ApiIdInvalidError:
-    print("Invalid API_ID/API_HASH")
+    print("[-] Invalid API_ID/API_HASH")
 except KeyboardInterrupt:
-    print(f"\nQuiting ...")
+    print("[+] \nQuiting ...")
