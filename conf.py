@@ -7,9 +7,9 @@
 # There is no need to enter any URL. Just enter the App title and short name of your choice.
 # Click on Create application at the end.
 # Copy the API_ID and API_HASH values and paste here.
-API_ID = 1225
+API_ID = 1219125
 # NOTE: The API_HASH must be in single quotes. Below is a sample.
-API_HASH = 'd15e36f952b2d0c547d'
+API_HASH = 'd15e36f952698015e9f8384b2d0c547d'
 
 
 
@@ -18,17 +18,17 @@ API_HASH = 'd15e36f952b2d0c547d'
 #  After login, if you have'nt already. It would instruct to you to got to the channel you want the id for and send any message there.
 # After you send the message check your terminal. Find your message and copy the channel id to OWN_CHANNEL_ID.
 # Be careful with the minus(-) sign. If it is in the id then place it as well.
-OWN_CHANNEL_ID = -10031
+OWN_CHANNEL_ID = -1001499013531
 
 # Get the ids for all the channel you want to receive updates from and paste them here.
-CHANNELS_TO_GET_UPDATES_FROM = []
+CHANNELS_TO_GET_UPDATES_FROM = [971222376, -394044791, -100459602666, -1001241780253, -1001248434051, -1001317926042, -1001465610845]
 
 
 
 # Use socks5 proxy if telegram web is not working in your region.
 PROXY = True
-SOCKS5_SERVER = 'xx.xx.xxx.xxx'
-SOCKS5_PORT = 1234
+SOCKS5_SERVER = '159.89.49.60'
+SOCKS5_PORT = 31264
 
 
 # If proxy requires authentication then set AUTHETICATIN to True to enable.

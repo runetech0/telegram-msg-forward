@@ -1,8 +1,8 @@
 
-from telethon import TelegramClient,events, errors, utils
+from telethon import TelegramClient, events, errors
 import logging
 import socks
-import telegram_conf as conf
+import conf
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
 
@@ -20,7 +20,7 @@ if conf.AUTHENTICATION:
         "username": conf.USERNAME,
         "password": conf.PASSWORD
     }
- 
+
 if conf.PROXY:
     if conf.AUTHENTICATION:
         if conf.USERNAME != None and conf.PASSWORD != None:
@@ -31,7 +31,7 @@ if conf.PROXY:
         print(f"[+] Proxy enabled without authentication\n[+] Proxy Server: {conf.SOCKS5_SERVER}:{conf.SOCKS5_PORT}")
 else:
     print(f"[+] Proxy disabled")
-    client = TelegramClient('anon', api_id, api_hash) 
+    client = TelegramClient('anon', api_id, api_hash)
 
 
 try:
@@ -54,19 +54,17 @@ except KeyboardInterrupt:
     quit()
 
 
-
-
 @client.on(events.NewMessage())
 async def newMessageHandler(msg):
     if public:
-            try:
-                if msg.fwd_from.channel_id:
-                    print(f"-------------------------------------------------------------")
-                    print(f"[+] Forwarded message is: {msg.raw_text}")
-                    print(f"\n[+] Chat id for public channel is: {msg.fwd_from.channel_id}\n")
-                    print(f"-------------------------------------------------------------\n")
-            except AttributeError:
-                pass
+        try:
+            if msg.fwd_from.channel_id:
+                print(f"-------------------------------------------------------------")
+                print(f"[+] Forwarded message is: {msg.raw_text}")
+                print(f"\n[+] Chat id for public channel is: {msg.fwd_from.channel_id}\n")
+                print(f"-------------------------------------------------------------\n")
+        except AttributeError:
+            pass
     else:
         try:
             if msg.chat_id:
