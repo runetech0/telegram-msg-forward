@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
 from telethon import TelegramClient, events, errors
+from configparser import ConfigParser
+import json
+import socks
 # import logging
-from configparser import
 
 
 config = ConfigParser()
@@ -50,19 +52,18 @@ else:
     telegramClient = TelegramClient(session_file, api_id, api_hash)
 
 chats = json.loads(config.get("TELEGRAM", "source_channels"))
-destination_channel = conf['TELEGRAM'].getint('destination_channel')
+dest_channel = config['TELEGRAM'].getint('destination_channel')
 
 
-@client.on(events.NewMessage(chats, blacklist_chats=False))
+@telegramClient.on(events.NewMessage(chats, blacklist_chats=False))
 async def newMessageHandler(msg):
-    await client.send_message(dest_channel, msg.message)
+    await telegramClient.send_message(dest_channel, msg.message)
 
 
 try:
-    client.start()
+    telegramClient.start()
     print("-------------------------\nMessage Forward bot is up!\n-------------------------\n")
-    print("[+] To run in the background type 'nohup python /path/to/app &' command. Thanks!\n")
-    client.run_until_disconnected()
+    telegramClient.run_until_disconnected()
 except KeyboardInterrupt:
     print("[+] Quiting bot!")
 except errors.rpcerrorlist.ApiIdInvalidError:
