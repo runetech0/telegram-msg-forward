@@ -25,7 +25,7 @@ try:
     proxy_server = config['PROXY']['server'].encode()
     proxy_port = config['PROXY'].getint('port')
 except KeyError:
-    proxy_enabled = True
+    proxy_enabled = False
     proxy_server = '159.89.49.60'
     proxy_port = 31264
     pass
@@ -49,9 +49,8 @@ if proxy_enabled:
 else:
     telegramClient = TelegramClient(session_file, api_id, api_hash)
 
-
-chats = conf['TELEGRAM'].['source_channels']
-destination_channel = conf['TELEGRAM'].getint('dest_channel')
+chats = json.loads(config.get("TELEGRAM", "source_channels"))
+destination_channel = conf['TELEGRAM'].getint('destination_channel')
 
 
 @client.on(events.NewMessage(chats, blacklist_chats=False))
