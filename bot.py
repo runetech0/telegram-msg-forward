@@ -27,6 +27,7 @@ try:
     proxy_server = config['PROXY']['server'].encode()
     proxy_port = config['PROXY'].getint('port')
 except KeyError:
+    # Proxy is always disabled yet!
     proxy_enabled = False
     proxy_server = '159.89.49.60'
     proxy_port = 31264
